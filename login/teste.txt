@@ -1,0 +1,1 @@
+SELECT * FROM 'nome_da_tabela' WHERE `id` = '39'

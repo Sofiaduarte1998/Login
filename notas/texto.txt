@@ -1,0 +1,13 @@
+Aula 24 fev 
+- adicionar funçoes na base de dados 
+- colocar o update com o nome da tabela e não ter a passoword
+-passar os dados para autentificação 
+
+tarefa
+btn- edição de dados de utilizador, 
+ colocar a base de dados nos distritos
+  fazer um foreach e implementar nos update 
+  mudar o formulário alterado custum_autoliza.js 
+
+
+  proxima semana trabalhar de apis.

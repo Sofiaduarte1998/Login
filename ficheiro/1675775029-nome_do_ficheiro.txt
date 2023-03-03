@@ -1,0 +1,1 @@
+Texto escrito manual ou de um string como o campo01 que é aa

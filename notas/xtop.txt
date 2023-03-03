@@ -1,0 +1,2 @@
+INSERT INTO `teste` (`email`, `descricao`, `pass`, `utilizador`, `timestamp`) 
+     VALUES ('', '9990775155c3518a0d7917f7780b24aa','ttt','ttt','1676903648');
