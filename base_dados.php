@@ -29,7 +29,7 @@ function conectar_bd()
 
 
 //-----2.FUNÇÃO PARA INSERIR REGISTOS NA BD-----
-function inserir_registo($conn, $campo01, $email, $selecao, $password, $timestamp, $distritos)
+function inserir_registo($conn, $campo01, $email, $password, $timestamp, $distritos)
 {
     $sql = "SELECT * FROM  `teste` WHERE `email`LIKE '$email' LIMIT 1;";
     $result = mysqli_query($conn, $sql);
