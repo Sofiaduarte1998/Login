@@ -34,20 +34,43 @@ if (isset($_SESSION['autenticacao'])) {
     $conn = conectar_bd();
 
     $id = 20;
-    $dados = dados_utilizador($conn, $id);
+    $dado = dados_utilizador($conn, $id);
     //Dados do utlizador 
 
-    foreach ($dados as $ddados_utilizador) {
+    echo "<p>ID: " . strval($dado['id']) . "</p>";
+    echo "<p>User: " . $dado['utilizador'] . "</p>";
+    echo "<p>E-mail: " . $dado['email'] . "</p>";
+    echo "<p>Distritos: " . $dado['distrito_id'] . "</p>"; //erro
 
-        echo "<p>ID: " . $dados['id'] . "</p>";
-        echo "<p>User: " . $dados['utilizador'] . "</p>";
-        echo "<p>E-mail: " . $dados['email'] . "</p>";
-        echo "<p>Descricao: " . $dados['descricao'] . "</p>";
-        echo "<p>Distritos: " . $dados['distritos'] . "</p>"; //erro
+    $distrito = obter_nome_distrito($conn, $dado['distrito_id']); //erro
 
-        $distritos = obter_nome_distrito($conn, $dado['distritos']); //erro
+    echo "<p>Nome do Distrito: " . $distrito['id'] . "</p>"; //erro
+    echo "<p>Pass MD5: " . $dado['pass'] . "</p>";
+    echo "<p>Timestamp: " . $dado['timestamp'] . "</p>";
 
-        echo "<p>Nome do Distrito: " . $distrito['distritos'] . "</p>"; //erro
+    echo "<p>Data: " . date("d-m-Y H:i:s", $dado['timestamp']); //erro
+
+
+    echo "<p>Dia: " . date("d", $dado['timestamp']) . "</p>";
+    echo "<p>Mês: " . date("m", $dado['timestamp']) . "</p>";
+    echo "<p>Ano: " . date("Y", $dado['timestamp']) . "</p>";
+
+    echo "<p>Hora: " . date("H", $dado['timestamp']) . "</p>";
+    echo "<p>Minutos: " . date("i", $dado['timestamp']) . "</p>";
+    echo "<p>Segundos: " . date("s", $dado['timestamp']) . "</p>";
+
+    /*     foreach ($dados as $key => $dado) {
+
+        echo $dado . "\n";
+        echo $key;
+        echo "<p>ID: " . strval($dado['id']) . "</p>";
+        echo "<p>User: " . $dado['utilizador'] . "</p>";
+        echo "<p>E-mail: " . $dado['email'] . "</p>";
+        echo "<p>Distritos: " . $dado['distrito_id'] . "</p>"; //erro
+
+        $distrito = obter_nome_distrito($conn, $dado['distrito_id']); //erro
+
+        echo "<p>Nome do Distrito: " . $distrito['id'] . "</p>"; //erro
         echo "<p>Pass MD5: " . $dado['pass'] . "</p>";
         echo "<p>Timestamp: " . $dado['timestamp'] . "</p>";
 
@@ -61,7 +84,7 @@ if (isset($_SESSION['autenticacao'])) {
         echo "<p>Hora: " . date("H", $dado['timestamp']) . "</p>";
         echo "<p>Minutos: " . date("i", $dado['timestamp']) . "</p>";
         echo "<p>Segundos: " . date("s", $dado['timestamp']) . "</p>";
-    }
+    } */
 
     fechar_bd($conn);
 

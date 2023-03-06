@@ -40,12 +40,12 @@
             ?>
             <select name="distritos">
                 <?php
-                //SELECT * FROM `distritos` WHERE 1
+                //SELECT * FROM `distritos`
                 //Ciclo repetitivo para array's
                 foreach ($distritos as $distrito) { ?>
-                    <option value="<?php echo $distrito['id'] ?>">
-                        <?php echo $distrito['distritos']; ?>
-                    </option>
+                <option value="<?php echo $distrito['id'] ?>">
+                    <?php echo $distrito['distritos']; ?>
+                </option>
                 <?php } ?>
 
             </select>
@@ -59,7 +59,8 @@
 
     <p id="resultado"></p>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="js/custom.js"></script>
 

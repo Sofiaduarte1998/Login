@@ -17,7 +17,7 @@ $response = curl_exec($curl);
 $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 curl_close($curl);
 
-echo "Status code: " . $status_code;
+echo "Status code: " . $response;
 
 echo "<br><br>";
 

@@ -23,6 +23,29 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `distritos`
+--
+
+DROP TABLE IF EXISTS `distritos`;
+CREATE TABLE IF NOT EXISTS `distritos` (
+  `id` int NOT NULL,
+  `distritos` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `distritos`
+--
+
+INSERT INTO `distritos` (`id`, `distritos`) VALUES
+(1, 'Santarém'),
+(2, 'Faro '),
+(3, 'Aveiro'),
+(4, 'Leiria');
+
 --
 -- Estrutura da tabela `teste`
 --
@@ -33,54 +56,55 @@ CREATE TABLE IF NOT EXISTS `teste` (
   `email` varchar(100) NOT NULL,
   `pass` varchar(50) NOT NULL,
   `utilizador` varchar(50) NOT NULL,
-  `timestamp` timestamp NOT NULL,
-  `distritos` int NOT NULL,
-  PRIMARY KEY (`id`)
+  `timestamp` int NOT NULL,
+  `distrito_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT FK_Distritos FOREIGN KEY (`distrito_id`)
+    REFERENCES `distritos`(`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `teste`
 --
-
-INSERT INTO `teste` (`id`, `email`, `pass`, `utilizador`, `timestamp`, `distritos`) VALUES
-(11, 'nnnnn', 'nnnn', '', '0000-00-00 00:00:00', 0),
-(12, 'oooo', 'kkkk', 'kkkkk', '0000-00-00 00:00:00', 0),
-(13, 'sd@hotmail-com', '1222333', '', '2023-02-09 12:36:58', 0),
-(14, 'sofiadua@hotmail.com', 'nnnn', '', '2023-02-09 12:40:55', 0),
-(15, 'aaa@ddd', 'aaa', 'aaa', '2023-02-17 16:48:17', 0),
-(16, 'aaa', 'aaa', 'aaa', '2023-02-17 16:49:42', 0),
-(17, '', '', 'ee', '0000-00-00 00:00:00', 0),
-(18, '', '', 'ttt', '0000-00-00 00:00:00', 0),
-(19, '', '', 'ttt', '0000-00-00 00:00:00', 0),
-(20, 'ddddd@hotmail.com', '12345', 'adeus', '2023-02-20 12:35:52', 0),
-(21, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(22, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(23, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(24, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(25, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(26, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(27, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(28, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(29, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(30, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(31, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(32, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(33, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(34, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(35, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', '0000-00-00 00:00:00', 0),
-(36, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(37, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(38, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(39, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(40, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(41, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(42, '', '1234', '111', '0000-00-00 00:00:00', 0),
-(43, '', 'ttt', 'ttt', '0000-00-00 00:00:00', 0),
-(44, '', 'ttt', 'ttt', '0000-00-00 00:00:00', 0),
-(45, '', 'ttt', 'ttt', '0000-00-00 00:00:00', 0),
-(46, '', 'ss', 'ss', '0000-00-00 00:00:00', 0),
-(47, 'sssddd@hotmail.com', '12345', 'sssdddd', '2023-03-02 10:58:21', 0),
-(48, 'ssssddnn@gmail.com', 'nnnn', 'ssddnn', '2023-03-02 11:12:26', 0);
+INSERT INTO `teste` (`id`, `email`, `pass`, `utilizador`, `timestamp`, `distrito_id`) VALUES
+(11, 'nnnnn', 'nnnn', '', 1525376494, 1),
+(12, 'oooo', 'kkkk', 'kkkkk', 1525376494, 1),
+(13, 'sd@hotmail-com', '1222333', '', 1525376494, 1),
+(14, 'sofiadua@hotmail.com', 'nnnn', '', 1525376494, 1),
+(15, 'aaa@ddd', 'aaa', 'aaa', 1525376494, 1),
+(16, 'aaa', 'aaa', 'aaa', 1525376494, 1),
+(17, '', '', 'ee', 1525376494, 1),
+(18, '', '', 'ttt', 1525376494, 1),
+(19, '', '', 'ttt', 1525376494, 1),
+(20, 'ddddd@hotmail.com', '12345', 'adeus', 1525376494, 1),
+(21, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(22, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(23, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(24, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com',1525376494, 1),
+(25, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(26, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(27, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(28, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(29, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(30, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(31, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(32, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com',1525376494, 1),
+(33, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(34, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(35, '', 'Sofia Duarte Neto', 'sofiaduarteneto1998@gmail.com', 1525376494, 1),
+(36, '', '1234', '111', 1525376494, 1),
+(37, '', '1234', '111', 1525376494, 1),
+(38, '', '1234', '111', 1525376494, 1),
+(39, '', '1234', '111', 1525376494, 1),
+(40, '', '1234', '111', 1525376494, 1),
+(41, '', '1234', '111', 1525376494,1),
+(42, '', '1234', '111', 1525376494, 1),
+(43, '', 'ttt', 'ttt', 1525376494, 1),
+(44, '', 'ttt', 'ttt', 1525376494, 1),
+(45, '', 'ttt', 'ttt', 1525376494, 1),
+(46, '', 'ss', 'ss', 1525376494, 1),
+(47, 'sssddd@hotmail.com', '12345', 'sssdddd', 1525376494, 1),
+(48, 'ssssddnn@gmail.com', 'nnnn', 'ssddnn', 1525376494, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

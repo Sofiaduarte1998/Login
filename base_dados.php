@@ -44,7 +44,7 @@ function inserir_registo($conn, $campo01, $email, $selecao, $password, $timestam
 
         echo 0;
     } else {
-        $sql = "INSERT INTO `teste` (`email`, `pass`, `utilizador`, `timestamp`,`distritos`) 
+        $sql = "INSERT INTO `teste` (`email`, `pass`, `utilizador`, `timestamp`,`distrito_id`) 
      VALUES ('$email','$password','$campo01','$timestamp','$distritos');";
         $result = mysqli_query($conn, $sql);
         echo 1; // "Crendenciais de autentticação invalidas";
@@ -143,7 +143,7 @@ function dados_utilizador_c_registo_unico($conn, $id)
 function alterar_dados($conn, $campo01, $mail, $id_distrito, $timestamp, $id_utilizador)
 {
 
-    $sql = "UPDATE `teste` SET `utilizador` = '$campo01', `email` = '$mail', `distritos` = '$id_distrito', `timestamp` = '$timestamp' WHERE `id` = '$id_utilizador';";
+    $sql = "UPDATE `teste` SET `utilizador` = '$campo01', `email` = '$mail', `distrito_id` = '$id_distrito', `timestamp` = '$timestamp' WHERE `id` = '$id_utilizador';";
 
     $result = mysqli_query($conn, $sql);
 
